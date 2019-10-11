@@ -1,0 +1,70 @@
+.WhereUsedContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color:  #E6E6E6;
+  height: 100%;
+  width:100%;
+  overflow: scroll;
+}
+
+
+
+
+.WhereUsedHeaders{
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+}
+
+.WhereUsedLineNumberHeader{
+  width:5%;
+  padding-right: 2.5%; 
+
+}
+
+.PgmIdHeader{
+  width:10%;
+  padding-right: 2.5%; 
+
+}
+
+.WhereUsedSourceCodeHeader{
+  width:80%;
+  text-align: center;
+}
+
+.WhereUsedLineNum {
+  width:5%;
+  padding-right: 2.5%; 
+
+}
+
+.WhereUsedPgmId {
+   width:10%;
+   padding-right: 2.5%; 
+}
+
+.WhereUsedSourceCode {
+  width: 80%;
+  text-justify: center;
+  overflow-x: scroll;
+}
+
+.WhereUsedLine {
+  display: flex ;
+  flex-direction: row;
+  font-size: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #E6E6E6;
+}
+
+.WhereUsedBrowser{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: scroll;
+  background-color:  #FFFFFF;
+ 
+}

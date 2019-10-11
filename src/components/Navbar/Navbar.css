@@ -1,0 +1,42 @@
+
+.Navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 18px;
+  height: 30%;
+  width:100%;
+}
+
+.Modes {
+  display: inline-block;
+  width: 100%;
+}
+
+
+
+.Navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color:  #F1F1F1;
+}
+
+.Navbar li {
+  float: left;
+  margin-right:4%; 
+}
+
+.Navbar li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 3.5px 4px;
+  text-decoration: none;
+}
+
+/* Change the link color to #111 (black) on hover */
+.Navbar li a:hover {
+  background-color: #E6E6E6;
+}

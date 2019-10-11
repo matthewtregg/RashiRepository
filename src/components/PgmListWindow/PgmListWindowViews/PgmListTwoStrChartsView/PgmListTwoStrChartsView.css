@@ -1,0 +1,47 @@
+
+.PgmListChartWindow{
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  width: 10%;
+  height:100%;
+  border-style: solid;
+  border-color:  #F1F1F1;
+  background-color:  #F1F1F1;
+}
+
+.PgmListChartWindowContainer {
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  height: 750px;
+  border-style: solid;
+  border:  #F1F1F1;;
+  font-size:15px; 
+}
+
+
+.ProgramListChartHeader{
+  height: 5%;
+  background-color: #F1F1F1;
+  color: black;
+  font-size: 24px;
+}
+
+.PgmChartContainerTwoOne {
+  width: 45%;
+  height: 100%;
+  border-style: solid;
+  border-color: #F1F1F1;
+}
+
+
+.PgmChartContainerTwoTwo {
+  width: 55%;
+  height: 100%;
+  border-style: solid;
+  border-color: #F1F1F1;
+}

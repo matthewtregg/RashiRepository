@@ -1,0 +1,90 @@
+
+
+.WindowContainer{
+  height: 100%;
+  width:100%;
+  background-color:#F1F1F1;
+}
+
+
+.SourceBrowserContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color:  #E6E6E6;
+  height: 100%;
+  width: 65%;
+}
+
+.SourceHeaders {
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+}
+
+.LineNumberHeader{
+width:5%
+}
+
+.SourceCodeHeader{
+  width:85%;
+  text-align: center;
+}
+
+.SourceDateHeader{
+  width:10%
+}
+
+.WhereUsedVar {
+  cursor:pointer;
+}
+
+.Line {
+display: flex ;
+flex-direction: row;
+font-size: 10px;
+margin: 0px;
+padding: 0px;
+height: 11px;
+
+}
+
+
+.LineNum {
+width: 5%;
+padding-right:2.5%;
+padding: 0px;
+margin: 0px;
+}
+
+.SourceCode{
+width: 80%;
+padding: 0px;
+margin: 0px;
+}
+
+.SourceCode span {
+  font-size: 10px;
+}
+
+.SourceItem {
+  cursor: pointer;
+}
+
+.SourceDate{
+width: 10%;
+padding-left:2.5%;
+line-height: 15px;
+padding:0px;
+padding: 0px;
+margin: 0px;
+
+}
+
+.SourceBrowser{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: scroll;
+  background-color:  #FFFFFF;
+}

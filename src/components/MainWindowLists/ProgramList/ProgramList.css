@@ -1,0 +1,86 @@
+
+
+.ProgramList{
+  width: 95%;
+  color: black;
+  background-color:  #e6e6e6;
+  overflow-y: scroll;
+  background-color:  #e6e6e6;
+  border-style: solid;
+  border-color: #e6e6e6;
+
+}
+
+.List{
+  width: 100%;
+  color: black;
+  background-color:  #FFFFFF;
+  overflow-y: scroll;
+
+}
+
+
+.PgmListHeader{
+  display: flex;
+  flex-direction:row; 
+  height: 5%;
+  text-align: left;
+
+}
+
+.PgmHeader {
+  width: 10%;
+}
+
+.PgmTxtHeader {
+  width: 60%;
+}
+
+.PgmTypHeader {
+  width: 20%;
+}
+.DirHeader {
+  width: 20%;
+}
+
+.Pgm{
+  width: 15%;
+}
+
+.DirNm{
+  width: 20%; 
+}
+
+.PgmTyp{
+  width: 20%;
+} 
+
+.PgmTxt{
+  width: 55%; 
+  height: 15px;
+  
+}
+
+.PgmListCore{
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll; 
+}
+
+.PgmListItem {
+  display: flex;
+  flex-direction:row; 
+  text-align: left;
+  padding: 2px;
+  height: 15px;
+  font-size: 14px;
+}
+
+
+.ContextListItem {
+  height: 20px;
+}
+
+.Pgm {
+  width: 10%;
+}

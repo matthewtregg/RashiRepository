@@ -1,0 +1,28 @@
+
+
+.FileList{
+  width: 95%;
+  color: black;
+  background-color:  #e6e6e6;
+  overflow-y: scroll;
+  background-color:  #e6e6e6;
+  border-style: solid;
+  border-color: #e6e6e6;
+
+}
+
+.MainFileList{
+  width: 10%;
+  color: black;
+  background-color:  #e6e6e6;
+  overflow-y: scroll;
+  background-color:  #e6e6e6;
+  border-style: solid;
+  border-color: #e6e6e6;
+}
+
+
+
+.FileListItem {
+  height: 5%;
+}

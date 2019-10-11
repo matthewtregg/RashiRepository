@@ -1,0 +1,49 @@
+.CenterRectContent{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 1190px;
+  height: 590px;
+  border-color: black;
+  border-style: solid;
+  background-color: #FFFFFF;
+  visibility: visible;
+  overflow-y: scroll;
+  text-align: left;
+}
+
+.ExtensionBox{
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-color: black;
+  border-style: solid;
+  background-color: #FFFFFF;
+  visibility: visible;
+  text-align: center;
+  text-justify: center;
+  font-size: 25px;
+}
+
+.EntRectContent{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 400px;
+  height: 290px;
+  border-color: black;
+  border-style: solid;
+  background-color: #FFFFFF;
+  visibility: visible;
+  overflow-y: scroll;
+  text-align: left;
+}
+
+
+.entRellink {
+  fill: none;
+  /* stroke: #ccc; */
+  stroke: black;
+  stroke-opacity: 0.8;
+  stroke-width: 5px;
+}

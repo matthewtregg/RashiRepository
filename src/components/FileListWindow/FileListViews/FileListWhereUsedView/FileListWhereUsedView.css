@@ -1,0 +1,38 @@
+
+.EntListWhereUsedWindowContainer{
+  display:flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  height: 750px;
+  border-style: solid;
+  border:  #E6E6E6;
+  background-color:  #F1F1F1;
+  font-size:15px; 
+}
+
+
+.EntityListHeader{
+  height: 5.27%;
+  background-color:  #F1F1F1;
+  color: black;
+  font-size: 24px;
+}
+
+
+
+
+.WhereUsed{
+  width: 30%;
+  height:100%;
+  border-color:  #F1F1F1;
+  text-align: left;
+  border-style: solid;
+}
+
+
+.MainFileWhereUsedView{
+width: 30%;
+height:100%;
+}

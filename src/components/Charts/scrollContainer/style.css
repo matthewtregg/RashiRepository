@@ -1,0 +1,64 @@
+.indiana-scroll-container--dragging {
+  pointer-events: none;
+  cursor: grab;
+  background-color: #FFFFFF;
+}
+
+.indiana-dragging {
+  cursor: grab !important;
+}
+
+.center button  {
+  position: fixed;
+  top: 85%; 
+  left: 90%;
+  height: 2.5%;
+  width: 2.5%;
+}
+
+.center img {
+  position: fixed;
+  display: inline-block;
+  top: 85.1%; 
+  left: 90.5%;
+  height: 1.9%;
+  width: 1.4%;
+}
+
+
+.center1 button  {
+  position: fixed;
+  top: 85%; 
+  left: 50%;
+  height: 2.5%;
+  width: 2.5%;
+}
+
+.center1 img {
+  position: fixed;
+  display: inline-block;
+  top: 85.1%; 
+  left: 50.5%;
+  height: 1.9%;
+  width: 1.4%;
+}
+
+
+.center2 button  {
+  position: fixed;
+  top: 85%; 
+  left: 95%;
+  height: 2.5%;
+  width: 2.5%;
+}
+
+.center2 img {
+  position: fixed;
+  display: inline-block;
+  top: 85.1%; 
+  left: 95.5%;
+  height: 1.9%;
+  width: 1.4%;
+}
+
+

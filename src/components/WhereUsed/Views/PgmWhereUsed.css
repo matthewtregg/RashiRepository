@@ -1,0 +1,72 @@
+.WhereUsedPgmSourceContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background-color:  #E6E6E6;
+  height: 100%;
+  width:50%;
+}
+
+.WhereUsedPgmSourceHeaders{
+  display: flex;
+  flex-direction: row;
+  font-size: 14px;
+}
+
+.WhereUsedPgmSourceTextHeader{
+  width:30%;
+  padding-right: 2.5%; 
+}
+
+.PgmIdPgmSourceHeader{
+  width:25%;
+  padding-right: 2.5%; 
+}
+
+.WhereUsedPgmSourceCodeHeader{
+  width:30%;
+  text-align: left;
+}
+
+.WhereUsedPgmSourceLineNum {
+  width:5%;
+  padding-right: 2.5%; 
+
+}
+
+.WhereUsedPgmSourcePgmId {
+   width:10%;
+   padding-right: 2.5%; 
+}
+
+.WhereUsedPgmSourceName {
+  width: 25%;
+  padding-right: 2.5%; 
+}
+
+.WhereUsedPgmSourceText {
+  width: 30%;
+}
+
+.WhereUsedPgmSourceType {
+  width: 30%;
+  text-align: right;
+}
+
+.WhereUsedPgmSourceLine {
+  display: flex ;
+  flex-direction: row;
+  font-size: 10px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #E6E6E6;
+}
+
+.WhereUsedPgmSourceBrowser{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  overflow-y: scroll;
+  background-color:  #FFFFFF;
+}
+

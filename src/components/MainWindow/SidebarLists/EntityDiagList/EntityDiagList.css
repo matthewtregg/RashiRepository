@@ -1,0 +1,17 @@
+
+.Files {
+  width:50%;
+  border-radius: 2px;
+  padding: 5px; 
+  font-size: 14px;
+}
+
+
+
+
+.Files:hover li {
+  background-color: #C7C7C7;
+  border-radius: 2px;
+  padding: 5px; 
+
+}

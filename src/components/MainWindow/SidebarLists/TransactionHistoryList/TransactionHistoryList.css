@@ -1,0 +1,16 @@
+
+
+.TransactionHistory {
+  width:80%;
+  border-radius: 2px;
+  padding: 5px; 
+  font-size: 14px;
+}
+
+
+.TransactionHistory:hover li {
+  background-color: #C7C7C7;
+  border-radius: 2px;
+  padding: 5px; 
+
+}

@@ -1,0 +1,38 @@
+
+/* Remove default bullets */
+.RepoList {
+  border-color: #F1F1F1; 
+  border-style: solid;
+  height: 100%;
+  width: 20%;
+  align-content: left;
+  text-align: left;
+  font-size: 12px;
+}
+
+/* Style the caret/arrow */
+.Repositories .caret {
+  cursor: pointer; 
+  user-select: none; /* Prevent text selection */
+  font-size: 10px;
+}
+
+/* Create the caret/arrow with a unicode, and style it */
+
+
+/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+.Repositories .caret-down{
+  color: black;
+  display: inline-block;
+  font-size: 10px;
+}
+
+.RepImg{
+  display: inline-block;
+  height: 10%;
+  width:10%;
+}
+
+.Repositories li {
+  margin-left: -30px;
+}

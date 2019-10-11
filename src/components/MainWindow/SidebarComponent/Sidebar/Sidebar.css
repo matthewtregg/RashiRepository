@@ -1,0 +1,50 @@
+.Sidebar{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
+  height: 100%;
+  color: white;
+  background-color: #F1F1F1;
+  
+}
+ul, #myUL {
+  list-style-type: none;
+}
+
+/* Remove margins and padding from the parent ul */
+#myUL {
+  height: 100%;
+  width:100%;
+  margin: 0;
+  padding: 0;
+}
+
+.RepositoriesContainer{
+  height: 94.65%;
+  background-color: white;
+  font-size: 18px;
+  width: 100%;
+}
+
+
+.Repositories {
+  display: flex;
+  flex-direction: column;
+  border-style: solid;
+  border-color: #F1F1F1;
+  height: 100%;
+  color:#333333;
+  background-color: white;
+  overflow-y: scroll;
+  font-size: 18px;
+  width:100%;
+}
+
+.Title {
+  color: black;
+  background-color: #F1F1F1;
+
+  font-size: 24px;
+  height:5%;
+}
