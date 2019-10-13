@@ -12,7 +12,8 @@ export const getChartArray = (dbName) =>
 ({
   type: 'GET_CHART_ARRAY',
   url: `http://195.224.116.34:5000/ProgramStructureChart/${dbName}`,
-  repoToExpand: dbName
+  repoToExpand: dbName,
+  repo: dbName,
 })
 
 export const getRepositoryList = () =>

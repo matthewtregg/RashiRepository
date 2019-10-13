@@ -19,6 +19,8 @@ const mapStateToProps = (state) => {
     chartArray: state.mainWindow.chartArray,
     // next diagram list
     nextDiagrams: state.mainWindow.nextDiagrams,
+    // repoName
+    repoName: state.mainWindow.repoName
   }
 }
 
@@ -31,13 +33,13 @@ const mapDispatchToProps = (dispatch) => {
     // change the pgm source data for pgm source view
     changePgmSource: (pgmSource, screenId) => dispatch(changePgmSource(screenId,pgmSource)),
     // get Pgm where used data
-    getPgmWhereUsedData : (pgm, screenId) => dispatch(getPgmWhereUsedData(pgm, screenId)),
+    getPgmWhereUsedData : (pgm, screenId, repoName) => dispatch(getPgmWhereUsedData(pgm, screenId, repoName)),
     // get file where used data
-    getFileWhereUsedData: (ent, screenId) => dispatch(getFileWhereUsedData(ent, screenId)),
+    getFileWhereUsedData: (ent, screenId, repoName) => dispatch(getFileWhereUsedData(ent, screenId , repoName)),
     // get field where used data
-    getFieldWhereUsedData: (field, screenId) => dispatch(getFieldWhereUsedData(field, screenId)),
+    getFieldWhereUsedData: (field, screenId, repoName) => dispatch(getFieldWhereUsedData(field, screenId, repoName)),
     // get variable where used data
-    getVarWhereUsedData: (variable, screenId) => dispatch(getVarWhereUsedData(variable, screenId)),
+    getVarWhereUsedData: (variable, screenId, repoName) => dispatch(getVarWhereUsedData(variable, screenId, repoName)),
     // next DFD type 
     setNextDFDType: (type) => dispatch(setNextDFDType(type))
   }
@@ -62,30 +64,33 @@ function PgmListWindowContainer({
   // the pgm structure chart Array -- only need this in pgm str chart container
   chartArray,
   // data for pgm where used
-  getPgmWhereUsedData
+  getPgmWhereUsedData,
+  // repoName
+  repoName
 }) {
 
 
 
 // THESE ARE ALL UNIVERSAL METHODS TO SWITCH BETWEEN SCREENS 
 const showWhereUsedPgm = (pgm,screenId) => {
-  
-  getPgmWhereUsedData(pgm, 1);
+  console.log("Where used pgm");
+  console.log(repoName);
+  getPgmWhereUsedData(pgm, 1, repoName);
   setPgmListWindowMode("ListAndWhereUsed");
 }
 
 const showWhereUsedFile= (file,screenId) => {
-  getFileWhereUsedData(file, screenId);
+  getFileWhereUsedData(file, screenId, repoName);
   setPgmListWindowMode("ListAndWhereUsed");
 }
 
 const showWhereUsedVar= (variable,screenId) => {
-  getVarWhereUsedData(variable,screenId)
+  getVarWhereUsedData(variable,screenId, repoName)
   setPgmListWindowMode("ListAndWhereUsed");
 }
 
 const showWhereUsedField= (field,screenId) => {
-  getFieldWhereUsedData(field, screenId)
+  getFieldWhereUsedData(field, screenId, repoName);
   setPgmListWindowMode("ListAndWhereUsed");
 }
 

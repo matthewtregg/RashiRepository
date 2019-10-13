@@ -22,10 +22,10 @@ const pgmList = (state = initialState, action) => {
         ...state,
         pgmListLoading:'Loading',
     }
-    case "SET_PGM_LIST":
+    case "SET_CHART_ARRAY":
     return {
       ...state,
-      pgmList: action.payload,
+      pgmList: action.list,
       pgmListLoading: 'Loaded'
     }
 

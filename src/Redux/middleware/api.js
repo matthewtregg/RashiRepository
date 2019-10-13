@@ -49,7 +49,6 @@ export const api = ({ dispatch, getState }) => (next => (action) => {
     fetch(action.url)
      .then(response => response.json()) 
      .then(data => {
-        console.log(data);
         dispatchBasedOnActionType(action.type, data);
       })
     }
@@ -74,7 +73,6 @@ export const api = ({ dispatch, getState }) => (next => (action) => {
         })
         break;
         case "GET_DFD_DIAGRAM_DATA":
-        console.log(data, "central schema Data");
         dispatch({
           type: "GET_DFD_DIAGRAM_DATA_PGM",
           url: `http://195.224.116.34:5000/PgmDFDPgm/${action.pgm}/${action.repo}`,
@@ -85,7 +83,6 @@ export const api = ({ dispatch, getState }) => (next => (action) => {
         })
         break;
         case "GET_DFD_DIAGRAM_DATA_PGM":
-        console.log(data, "DFD Pgm DATA");
         dispatch({
           type: "GET_DFD_DIAGRAM_DATA_ENT",
           url: `http://195.224.116.34:5000/PgmDFDFile/${action.pgm}/${action.repo}`,
@@ -97,7 +94,6 @@ export const api = ({ dispatch, getState }) => (next => (action) => {
         })
         break;
         case "GET_DFD_DIAGRAM_DATA_ENT":
-        console.log(data, "DFD Ent Data");
         dispatch({
           type: "SET_DFD_DIAGRAM_DATA",
           screenId: action.screenId,
@@ -194,17 +190,19 @@ export const api = ({ dispatch, getState }) => (next => (action) => {
         break;
         case "GET_CHART_ARRAY":
         dispatch({
-          type: "SET_CHART_ARRAY",
-          payload: data.progams,
-          screenId: action.screenId,
-          repo: action.repoToExpand.trim(),
+          type: 'GET_PGM_LIST',
+          url: `http://195.224.116.34:5000/ProgramList/${action.repo}`,
+          programs: data.progams,
+          repo: action.repo,
         })
         break;
         case "GET_PGM_LIST":
         dispatch({
-          type: "SET_PGM_LIST",
-          payload: data,
-          screenId: action.screenId
+          type: "SET_CHART_ARRAY",
+          payload: action.programs,
+          list: data,
+          screenId: action.screenId,
+          repo: action.repo,
         })
         break;
         case "GET_ENT_LIST":

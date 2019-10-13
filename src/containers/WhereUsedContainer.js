@@ -42,20 +42,24 @@ export const WhereUsedContainer = ({
 
 // pgm variable
 const setPgmWhereUsed = (pgm, screenId) => {
+  console.log(repoName);
   getPgmWhereUsedData(pgm, screenId,repoName);
 }
 // regex variable
 const setVarWhereUsed = (variable, screenId) => {
-  getVarWhereUsedData(variable,screenId, repoName)
+  console.log(repoName);
+  getVarWhereUsedData(variable,screenId, repoName);
 }
 
 // file variable
 const setFileWhereUsed = (ent, screenId) => {
-  getFileWhereUsedData(ent, screenId, repoName)
+  console.log(repoName);
+  getFileWhereUsedData(ent, screenId, repoName);
 }
 
 // field variable
 const setFieldWhereUsed = (field, screenId) => {
+  console.log(repoName);
   getFieldWhereUsedData(field, screenId, repoName)
 }
 
