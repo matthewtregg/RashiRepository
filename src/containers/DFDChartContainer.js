@@ -20,12 +20,14 @@ const mapStateToProps = (state) => {
     chartCentres: state.diagrams.chartCentres,
     // next diagrams
     nextDiagrams: state.mainWindow.nextDiagrams,
+    // repo Name
+    repoName: state.mainWindow.repoName,
   }
 }
 const mapDispatchToProps = (dispatch) => {
   return {
-    setDFDPgmDiagramData: (pgm, screenId) => dispatch(setDFDPgmDiagramData(pgm, screenId)),
-    setDFDFileDiagramData: (ent,view, screenId) => dispatch(setDFDFileDiagramData(ent,view, screenId)),
+    setDFDPgmDiagramData: (pgm, screenId, repo) => dispatch(setDFDPgmDiagramData(pgm, screenId, repo)),
+    setDFDFileDiagramData: (ent,view, screenId, repo) => dispatch(setDFDFileDiagramData(ent,view, screenId, repo)),
     setNextDFDType: (type) => dispatch(setNextDFDType(type)),
     setNextDiagram: (nextDiagram, screenId) => dispatch(setNextDiagram(nextDiagram,screenId)),
     setChartCentre: (centre,screenId) => dispatch(setChartCentre(centre,screenId)),
@@ -59,7 +61,8 @@ function DFDChartContainer ({
   setInitialLoadedStatus,
   setInitialZoom,
   setChartCentre,
-  changeLoadedStatus
+  changeLoadedStatus,
+  repoName
 }) {
 
 const getScreenInfo = (screenId) => {
@@ -104,6 +107,10 @@ const setNextPgmDFDDiagram = (nextDiagram,screenId) => {
 
 return (
   <DFDChart 
+
+  repoName = {
+    repoName
+  }
 
   zoomLevel = {
     zoomLevel

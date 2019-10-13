@@ -25,9 +25,6 @@ export const api = ({ dispatch, getState }) => (next => (action) => {
   if (!action.url && action.type!== "GET_STRUCTURE_DIAGRAM_DATA" && action.type!=="GET_ENT_DIAGRAM_DATA") return next(action);
 
   if (action.type ==="GET_ENT_DIAGRAM_DATA") {
-    console.log(action.ent);
-    console.log(action.relChartArray);
-    console.log(action.otherRelData);
     const payload  = buildEntData(action.ent, action.relChartArray, action.otherRelData)  
     dispatch({
       type: "SET_ENT_DIAGRAM_DATA",
@@ -48,9 +45,11 @@ export const api = ({ dispatch, getState }) => (next => (action) => {
   }
 
   else { 
+    console.log(action.url);
     fetch(action.url)
      .then(response => response.json()) 
      .then(data => {
+        console.log(data);
         dispatchBasedOnActionType(action.type, data);
       })
     }
@@ -75,48 +74,55 @@ export const api = ({ dispatch, getState }) => (next => (action) => {
         })
         break;
         case "GET_DFD_DIAGRAM_DATA":
+        console.log(data, "central schema Data");
         dispatch({
           type: "GET_DFD_DIAGRAM_DATA_PGM",
-          url: `http://195.224.116.34:5000/PgmDFDPgm/${action.pgm}`,
+          url: `http://195.224.116.34:5000/PgmDFDPgm/${action.pgm}/${action.repo}`,
           screenId: action.screenId,
-          centralSchema: data.data[0],
-          pgm: action.pgm
+          centralSchema: data.data,
+          pgm: action.pgm,
+          repo: action.repo
         })
         break;
         case "GET_DFD_DIAGRAM_DATA_PGM":
+        console.log(data, "DFD Pgm DATA");
         dispatch({
           type: "GET_DFD_DIAGRAM_DATA_ENT",
-          url: `http://195.224.116.34:5000/PgmDFDFile/${action.pgm}`,
+          url: `http://195.224.116.34:5000/PgmDFDFile/${action.pgm}/${action.repo}`,
           screenId: action.screenId,
           centralSchema: action.centralSchema,
-          pgmData: data.data[0],
-          pgm: action.pgm
+          pgmData: data.data,
+          pgm: action.pgm,
+          repo: action.repo
         })
         break;
         case "GET_DFD_DIAGRAM_DATA_ENT":
+        console.log(data, "DFD Ent Data");
         dispatch({
           type: "SET_DFD_DIAGRAM_DATA",
           screenId: action.screenId,
-          payload: {"DFDPgmInfo": action.pgmData,"DFDFileInfo":data.data[0], "centralSchema":action.centralSchema}
+          payload: {"DFDPgmInfo": action.pgmData,"DFDFileInfo":data.data, "centralSchema":action.centralSchema}   
         })
         break;
         case "GET_FILE_DFD_DIAGRAM_DATA":
         dispatch({
           type: "GET_FILE_DFD_DIAGRAM_DATA_PGM",
-          url: `http://195.224.116.34:5000/FileDFDPgm/${action.ent}`,
+          url: `http://195.224.116.34:5000/FileDFDPgm/${action.ent}/${action.repo}`,
           screenId: action.screenId,
           centralSchema: data.data,
-          ent: action.ent
+          ent: action.ent,
+          repo: action.repo
         });
         break;
         case "GET_FILE_DFD_DIAGRAM_DATA_PGM":
         dispatch({
           type: "GET_FILE_DFD_DIAGRAM_DATA_ENT",
-          url: `http://195.224.116.34:5000/FileDFDEnt/${action.ent}`,
+          url: `http://195.224.116.34:5000/FileDFDEnt/${action.ent}/${action.repo}`,
           screenId: action.screenId,
           centralSchema: action.centralSchema,
           pgmData: data.data,
-          ent: action.ent
+          ent: action.ent,
+          repo: action.repo
         });
         break;
         case "GET_FILE_DFD_DIAGRAM_DATA_ENT":

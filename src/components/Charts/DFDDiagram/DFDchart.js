@@ -28,6 +28,7 @@ class DFDChartWindow extends Component {
     this.contextMenu='.d3DFDcontextmenu' + this.props.screenId;
     this.MainDiv = ".DFDchartCanvas" + this.props.screenId;
     this.entryPoint = this.props.nextDFDDiagram ? this.props.nextDFDDiagram: 'APS050';
+    console.log(this.props.DFDDiagramData, "data");
     if (this.currentDiagram!==this.entryPoint && this.props.DFDChartType==='File') {
       this.centred = false;
       this.currentDiagram = this.entryPoint;
@@ -35,7 +36,7 @@ class DFDChartWindow extends Component {
       this.diagData = this.props.DFDDiagramData;
       const viewName = this.entryPoint.split(':')[1];
       const entName = this.entryPoint.split(':')[0];
-      this.props.setDFDFileDiagramData(entName,viewName,this.props.screenId); 
+      this.props.setDFDFileDiagramData(entName,viewName,this.props.screenId, this.props.repoName); 
     }
     else if (this.currentDiagram!==this.entryPoint) {
       this.centred = false;
@@ -43,9 +44,9 @@ class DFDChartWindow extends Component {
       this.scale = this.props.zoomLevel;
       if(this.nextDFDType) {
         this.nextDFDType = false; 
-        this.props.setDFDFileDiagramData(this.entryPoint,this.props.screenId);
+        this.props.setDFDFileDiagramData(this.entryPoint,this.props.screenId, this.props.repoName);
       } 
-      else this.props.setDFDPgmDiagramData(this.entryPoint,this.props.screenId);
+      else this.props.setDFDPgmDiagramData(this.entryPoint,this.props.screenId, this.props.repoName);
     } 
     else if (this.props.DFDDiagramData.DFDChartPgm && this.props.DFDChartType==='File') {
       createDFDChart2(this.props.DFDDiagramData.DFDChartPgm, this, this.entryPoint)

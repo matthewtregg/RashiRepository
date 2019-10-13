@@ -1,34 +1,38 @@
 
 
-export const getVarWhereUsedData = (Variable, screenId, dbname) => 
+export const getVarWhereUsedData = (Variable, screenId,repo) => 
 ({  type: 'GET_VARIABLE_WHERE_USED',
   screenId,
-  url:`http://195.224.116.34:5000/findVarWhereUsedSource/MVXD008/${Variable}`,
-  var: Variable
+  url:`http://195.224.116.34:5000/findVarWhereUsedSource/${repo}/${Variable}`,
+  var: Variable,
+  repo
 });
 
 
-export const getFileWhereUsedData = (file, screenId, dbname) => ({
+export const getFileWhereUsedData = (file, screenId, repo) => ({
   type: 'GET_FILE_WHERE_USED',
   screenId,
-  url: `http://195.224.116.34:5000/findEntWhereUsed/MVXD008/${file}`,
-  file
+  url: `http://195.224.116.34:5000/findEntWhereUsed/${repo}/${file}`,
+  file,
+  repo
 })
 
-export const getPgmWhereUsedData = (pgm, screenId, dbname) => ({
+export const getPgmWhereUsedData = (pgm, screenId, repo) => ({
     type: 'GET_PGM_WHERE_USED',
     screenId,
-    url: `http://195.224.116.34:5000/findPgmWhereUsed/MVXD008/${pgm}`,
-    pgm
+    url: `http://195.224.116.34:5000/findPgmWhereUsed/${repo}/${pgm}`,
+    pgm, 
+    repo
 })
 
 
-export const getFieldWhereUsedData = (field,screenId, dbname) => 
+export const getFieldWhereUsedData = (field,screenId, repo) => 
   { 
   return ({ type: 'GET_FIELD_WHERE_USED',
   screenId,
-  url: `http://195.224.116.34:5000/findFileWhereUsedField/MVXD008/${field}`,
-  field
+  url: `http://195.224.116.34:5000/findFileWhereUsedField/${repo}/${field}`,
+  field,
+  repo
 });
 }
 export const setWhereUsedType = (type, screenId) => ({

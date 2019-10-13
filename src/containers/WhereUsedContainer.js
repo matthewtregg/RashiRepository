@@ -11,15 +11,16 @@ const mapStateToProps = (state) => {
     whereUsedType: state.whereUsed.whereUsedType,
     whereUsed: state.whereUsed.whereUsed,
     chartLinkedPgms: state.diagrams.chartLinkedPgms,
+    repoName: state.mainWindow.repoName,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    getPgmWhereUsedData : (pgm, screenId) => dispatch(getPgmWhereUsedData(pgm, screenId)),
-    getFileWhereUsedData: (ent, screenId) => dispatch(getFileWhereUsedData(ent, screenId)),
-    getFieldWhereUsedData: (field, screenId) => dispatch(getFieldWhereUsedData(field, screenId)),
-    getVarWhereUsedData: (variable, screenId) => dispatch(getVarWhereUsedData(variable, screenId)),
+    getPgmWhereUsedData : (pgm, screenId, repo) => dispatch(getPgmWhereUsedData(pgm, screenId, repo)),
+    getFileWhereUsedData: (ent, screenId, repo) => dispatch(getFileWhereUsedData(ent, screenId, repo)),
+    getFieldWhereUsedData: (field, screenId,repo) => dispatch(getFieldWhereUsedData(field, screenId, repo)),
+    getVarWhereUsedData: (variable, screenId, repo) => dispatch(getVarWhereUsedData(variable, screenId, repo)),
     setWhereUsedType: (type) => dispatch(setWhereUsedType(type))
   }
 }
@@ -33,28 +34,29 @@ export const WhereUsedContainer = ({
     getVarWhereUsedData,
     setWhereUsedType,
     screenId,
-    whereUsed
+    whereUsed,
+    repoName
 }) => {
 
 
 
 // pgm variable
 const setPgmWhereUsed = (pgm, screenId) => {
-  getPgmWhereUsedData(pgm, screenId);
+  getPgmWhereUsedData(pgm, screenId,repoName);
 }
 // regex variable
 const setVarWhereUsed = (variable, screenId) => {
-  getVarWhereUsedData(variable,screenId)
+  getVarWhereUsedData(variable,screenId, repoName)
 }
 
 // file variable
 const setFileWhereUsed = (ent, screenId) => {
-  getFileWhereUsedData(ent, screenId)
+  getFileWhereUsedData(ent, screenId, repoName)
 }
 
 // field variable
 const setFieldWhereUsed = (field, screenId) => {
-  getFieldWhereUsedData(field, screenId)
+  getFieldWhereUsedData(field, screenId, repoName)
 }
 
 const whereUsedInfo =  whereUsedList.length > 0 ? whereUsedList.filter((whereUsed) => whereUsed.screenId === screenId)[0].whereUsed: null;
