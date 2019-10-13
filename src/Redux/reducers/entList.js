@@ -17,15 +17,11 @@ const entList = (state = initialState, action) => {
       ...state,
       entListWindowMode : action.entListWindowMode 
     }
-    case "GET_ENT_LIST_PENDING":
-    return {
-        ...state,
-        entListLoading:'Loading',
-    }
-    case "SET_ENT_LIST":
+  
+    case "SET_CHART_ARRAY":
     return {
       ...state,
-      entList: action.payload,
+      entList: action.entList,
       entListLoading: 'Loaded'
     }
     // what does current pghm

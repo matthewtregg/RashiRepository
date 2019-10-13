@@ -9,12 +9,14 @@ const mapStateToProps = (state) => {
     pgmSourceList: state.pgmSource.pgmSourceList, 
     pgmListWindowMode: state.pgmList.pgmListWindowMode,
     chartLinkedPgm: state.diagrams.chartLinkedPgm,
+    // name of the repo currently selected
+    repoName: state.mainWindow.repoName,
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    changePgmSource: (pgmSource, screenId) => dispatch(changePgmSource(screenId,pgmSource)),
+    changePgmSource: (pgmSource, screenId, repo) => dispatch(changePgmSource(screenId,pgmSource,repo)),
     setWhereUsed: (whereUsed, screenId) => dispatch(setWhereUsed(whereUsed,screenId)),
     setPgmListWindowMode: (pgmListWindowMode) => dispatch(setPgmListWindowMode(pgmListWindowMode)),
   }
@@ -29,7 +31,8 @@ export const SourceBrowserContainer = ({
     setWhereUsed,
     setPgmListWindowMode,
     pgmListWindowMode,
-    chartLinkedPgm
+    chartLinkedPgm,
+    repoName,
   }) => {
 
 const sourcePgm = chartLinkedPgm === ''? nextDiagram : chartLinkedPgm; 

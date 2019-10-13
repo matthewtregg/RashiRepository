@@ -31,7 +31,7 @@ const mapDispatchToProps = (dispatch) => {
     // change the diagram to show (this is an array of diagram screen key value pair)
     setNextDiagram: (nextDiagram,screenId) => dispatch(setNextDiagram(nextDiagram,screenId)),
     // change the pgm source data for pgm source view
-    changePgmSource: (pgmSource, screenId) => dispatch(changePgmSource(screenId,pgmSource)),
+    changePgmSource: (pgmSource, screenId, repoName) => dispatch(changePgmSource(screenId,pgmSource, repoName)),
     // get Pgm where used data
     getPgmWhereUsedData : (pgm, screenId, repoName) => dispatch(getPgmWhereUsedData(pgm, screenId, repoName)),
     // get file where used data
@@ -115,13 +115,13 @@ const compareSelectedPgm = (pgm, screenId) => {
 
 const goToSourceView = (pgm,screenId) => {
   setNextDiagram(pgm, 1);
-  changePgmSource(pgm, 1)
+  changePgmSource(pgm, 1, repoName)
   setPgmListWindowMode("ListAndSourceCode");
 }
 
 const compareSource = (pgm,screenId) => {
   setNextDiagram(pgm, screenId+1);
-  changePgmSource(pgm, screenId+1)
+  changePgmSource(pgm, screenId+1, repoName)
   setPgmListWindowMode("ListAnd2SourceCode");
 }
 

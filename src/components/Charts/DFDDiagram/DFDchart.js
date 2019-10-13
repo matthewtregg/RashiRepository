@@ -29,7 +29,9 @@ class DFDChartWindow extends Component {
     this.MainDiv = ".DFDchartCanvas" + this.props.screenId;
     this.entryPoint = this.props.nextDFDDiagram ? this.props.nextDFDDiagram: 'APS050';
     console.log(this.props.DFDDiagramData, "data");
+    
     if (this.currentDiagram!==this.entryPoint && this.props.DFDChartType==='File') {
+      console.log('number 1');
       this.centred = false;
       this.currentDiagram = this.entryPoint;
       this.scale = this.props.zoomLevel;
@@ -39,6 +41,7 @@ class DFDChartWindow extends Component {
       this.props.setDFDFileDiagramData(entName,viewName,this.props.screenId, this.props.repoName); 
     }
     else if (this.currentDiagram!==this.entryPoint) {
+      console.log('number 2');
       this.centred = false;
       this.currentDiagram = this.entryPoint;
       this.scale = this.props.zoomLevel;
@@ -49,10 +52,12 @@ class DFDChartWindow extends Component {
       else this.props.setDFDPgmDiagramData(this.entryPoint,this.props.screenId, this.props.repoName);
     } 
     else if (this.props.DFDDiagramData.DFDChartPgm && this.props.DFDChartType==='File') {
+      console.log('number 3');
       createDFDChart2(this.props.DFDDiagramData.DFDChartPgm, this, this.entryPoint)
     }
 
     else if (this.props.DFDDiagramData.DFDChartPgm) {
+      console.log('number 4');
       createDFDChart(this.props.DFDDiagramData.DFDChartPgm, this, this.entryPoint);
     } 
      

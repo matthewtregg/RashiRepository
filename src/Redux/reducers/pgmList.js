@@ -25,7 +25,7 @@ const pgmList = (state = initialState, action) => {
     case "SET_CHART_ARRAY":
     return {
       ...state,
-      pgmList: action.list,
+      pgmList: action.pgmList,
       pgmListLoading: 'Loaded'
     }
 
