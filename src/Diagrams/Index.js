@@ -34,3 +34,9 @@ export const getPgmStructureChartData = async (pgm, programs) => {
 const flattenDiagram = (Diagram) => {
   return Diagram.reduce((acc, obj) => acc.concat(obj));
 }
+
+export const getDFDPgmData = async (pgm, chartArray) => {
+  const pgmRelations = chartArray.filter(rel => rel.PGMID === pgm || rel.CLDPGM === pgm );
+  console.log(pgmRelations);
+  return pgmRelations;
+}

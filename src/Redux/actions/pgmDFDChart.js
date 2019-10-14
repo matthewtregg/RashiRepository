@@ -10,13 +10,20 @@ export const setNextDFDType = (DFDChartType) => ({
   DFDChartType
 })
 
-export const setDFDPgmDiagramData= (pgm, screenId, repo) =>({
-  type: 'GET_DFD_DIAGRAM_DATA',
-  url:`http://195.224.116.34:5000/PgmDFDCentral/${pgm}/${repo}`,
+export const setDFDPgmDiagramData= (pgm, screenId, repo, pgmChartArray) =>{
+
+console.log(pgmChartArray);
+
+return ({
+  type: 'GET_DFD_DIAGRAM_DATA_ENT',
   screenId,
   pgm,
-  repo
+  url: `http://195.224.116.34:5000/PgmDFDFile/${pgm}/${repo}`,
+  repo,
+  pgmChartArray
   })
+
+}
 
 export const setDFDFileDiagramData= (ent,view, screenId, repo) =>({
     type: 'GET_FILE_DFD_DIAGRAM_DATA',

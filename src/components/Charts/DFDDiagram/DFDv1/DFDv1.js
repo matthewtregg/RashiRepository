@@ -67,16 +67,13 @@ const separateBetweenBoxes = (CalledPgmBoxes, CallingPgmBoxes) => {
 
 export const createDFDChart = (data, context, Pgm) => {
 
-  console.log(data, "data");
-  console.log(Pgm, "Pgm");
 
 
 
   d3.select(context.MainDiv).selectAll("svg").remove();
 
-  const pgms = data.DFDPgmInfo.DFDPgmInfo[0];
+  const pgms = data.DFDPgmInfo;
   console.log(pgms, "pgm Data")
-  const centralSchema = data.centralSchema;
 
   let callingPgms = pgms.filter(pgm => pgm.PGMID!==Pgm);
   let calledPgms = pgms.filter(pgm => pgm.PGMID===Pgm);

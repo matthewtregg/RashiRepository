@@ -16,22 +16,22 @@ export const getRelChartArray = (ent, screenId) =>
   url: `http://195.224.116.34:5000/getEntRelParent/${ent}`
 })
 
-export const addParRelChartArray = (ent, screenId) => 
+export const addParRelChartArray = (ent, screenId, repo) => 
 {
   return ({
   type: 'ADD_PAR_TO_REL_CHART_ARRAY',
   ent,
   screenId,
-  url: `http://195.224.116.34:5000/getEntRelParent/${ent}`
+  url: `http://195.224.116.34:5000/getEntRelParent/${ent}/${repo}`
 })}
 
-export const addChldRelChartArray = (ent, screenId) => 
+export const addChldRelChartArray = (ent, screenId, repo) => 
 {
   return ({
   type: 'ADD_CHLD_TO_REL_CHART_ARRAY',
   ent,
   screenId,
-  url: `http://195.224.116.34:5000/getEntRelChild/${ent}`
+  url: `http://195.224.116.34:5000/getEntRelChild/${ent}/${repo}`
 })}
 
 export const setParButtonPressed = (ent,screenId) => ({

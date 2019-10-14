@@ -1,7 +1,9 @@
 
-import {getPgmStructureChartData} from '../../Diagrams/Index';
+import {getPgmStructureChartData, getDFDPgmData} from '../../Diagrams/Index';
 import {buildEntData} from '../../EntRelDiagrams/index';
 import {filterChildren, filterParents} from './apiUtil';
+import axios from 'axios';
+
 
 export const api = ({ dispatch, getState }) => (next => (action) => {
   
@@ -22,7 +24,7 @@ export const api = ({ dispatch, getState }) => (next => (action) => {
     repo:action.repoToExpand
   });
 
-  if (!action.url && action.type!== "GET_STRUCTURE_DIAGRAM_DATA" && action.type!=="GET_ENT_DIAGRAM_DATA") return next(action);
+  if (!action.url && action.type!== "GET_STRUCTURE_DIAGRAM_DATA" && action.type!=="GET_ENT_DIAGRAM_DATA" && action.type!=="GET_DFD_DIAGRAM_DATA") return next(action);
 
   if (action.type ==="GET_ENT_DIAGRAM_DATA") {
     const payload  = buildEntData(action.ent, action.relChartArray, action.otherRelData)  
@@ -33,7 +35,7 @@ export const api = ({ dispatch, getState }) => (next => (action) => {
     });
   }
   if (action.type === "GET_STRUCTURE_DIAGRAM_DATA") {
-    getPgmStructureChartData(action.pgm, action.chartArray)
+    getDFDPgmData(action.pgm, action.pgmChartArray)
     .then(data => {
       const payload = data.data
       dispatch({
@@ -41,19 +43,42 @@ export const api = ({ dispatch, getState }) => (next => (action) => {
        payload: payload,
        screenId: action.screenId
      });
-    })  
+    }) 
   }
+
+  if (action.type === "GET_DFD_DIAGRAM_DATA") {
+    console.log(action.pgm);
+    console.log(action.pgmChartArray);
+    getDFDPgmData(action.pgm, action.pgmChartArray)
+    .then(data => {
+      console.log(data);
+      dispatch({
+      type: "SET_DFD_DIAGRAM_DATA",
+      screenId: action.screenId,
+      payload: {"DFDPgmInfo": data,"DFDFileInfo":action.fileData, "centralSchema":[]}   
+    })
+    })
+  }
+    
+
+  
 
   else { 
     console.log(action.url);
-    fetch(action.url)
-     .then(response => response.json()) 
+    axios.get(action.url)
      .then(data => {
-        console.log(data);
-        dispatchBasedOnActionType(action.type, data);
+        dispatchBasedOnActionType(action.type, data.data);
       })
+      //axios.get(action.url);
+
+
     }
 
+    
+
+
+    // remove pgmCalls api call for diagram
+    // clicked to produce schema 
     const dispatchBasedOnActionType = (type, data) => {
       switch (type){
         case 'GET_REL_CHART_ARRAY':
@@ -73,32 +98,13 @@ export const api = ({ dispatch, getState }) => (next => (action) => {
           ent: action.ent
         })
         break;
-        case "GET_DFD_DIAGRAM_DATA":
-        dispatch({
-          type: "GET_DFD_DIAGRAM_DATA_PGM",
-          url: `http://195.224.116.34:5000/PgmDFDPgm/${action.pgm}/${action.repo}`,
-          screenId: action.screenId,
-          centralSchema: data.data,
-          pgm: action.pgm,
-          repo: action.repo
-        })
-        break;
-        case "GET_DFD_DIAGRAM_DATA_PGM":
-        dispatch({
-          type: "GET_DFD_DIAGRAM_DATA_ENT",
-          url: `http://195.224.116.34:5000/PgmDFDFile/${action.pgm}/${action.repo}`,
-          screenId: action.screenId,
-          centralSchema: action.centralSchema,
-          pgmData: data.data,
-          pgm: action.pgm,
-          repo: action.repo
-        })
-        break;
         case "GET_DFD_DIAGRAM_DATA_ENT":
         dispatch({
-          type: "SET_DFD_DIAGRAM_DATA",
+          fileData: data.data,
+          type: "GET_DFD_DIAGRAM_DATA",
           screenId: action.screenId,
-          payload: {"DFDPgmInfo": action.pgmData,"DFDFileInfo":data.data, "centralSchema":action.centralSchema}   
+          pgm: action.pgm,
+          pgmChartArray: action.pgmChartArray,
         })
         break;
         case "GET_FILE_DFD_DIAGRAM_DATA":
@@ -126,7 +132,7 @@ export const api = ({ dispatch, getState }) => (next => (action) => {
         dispatch({
           type: "SET_FILE_DFD_DIAGRAM_DATA",
           screenId: action.screenId,
-          payload: {"DFDPgmInfo": action.pgmData,"DFDFileInfo":data.data, "centralSchema":action.centralSchema}
+          payload: {"DFDPgmInfo": action.pgmData,"DFDFileInfo":data, "centralSchema":action.centralSchema}
         })
         break;
         case "GET_PGM_WHERE_USED":

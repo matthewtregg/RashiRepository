@@ -13,9 +13,6 @@ function FileListWindow({
 }) {
 
 
-
-
-
 const getFileListWindowToDispl = (subMode) => {
 if (subMode ==="List") {
   return  entList.length > 0 ?

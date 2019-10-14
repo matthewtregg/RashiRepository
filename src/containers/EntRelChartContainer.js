@@ -18,6 +18,7 @@ const mapStateToProps = (state) => {
     entRelData: state.entRelChart.entRelData ,
     // next diagrams
     nextDiagrams: state.mainWindow.nextDiagrams,
+    repoName: state.mainWindow.repoName,
   }
 }
 
@@ -27,8 +28,8 @@ const mapDispatchToProps = (dispatch) => {
     setNextDiagram: (nextDiagram, screenId) => dispatch(setNextDiagram(nextDiagram,screenId)),
     setEntRelChartData: (relChartArray, ent, screenId,otherRelData) => dispatch(setEntRelChartData(relChartArray,ent,screenId,otherRelData)),
     getEntRelChartArray: (ent, screenId) => dispatch(getRelChartArray(ent,screenId)),
-    addParRelChartArray: (ent,screenId) => dispatch(addParRelChartArray(ent, screenId)),
-    addChldRelChartArray: (ent,screenId) => dispatch(addChldRelChartArray(ent, screenId)) ,
+    addParRelChartArray: (ent,screenId, repoName) => dispatch(addParRelChartArray(ent, screenId, repoName)),
+    addChldRelChartArray: (ent,screenId, repoName) => dispatch(addChldRelChartArray(ent, screenId, repoName)) ,
     setParButtonPressed: (ent,screenId) => dispatch(setParButtonPressed(ent, screenId)) ,
     setChldButtonPressed: (ent,screenId) => dispatch(setChldButtonPressed(ent, screenId)), 
     remParRelChartArray: (ent,screenId) => dispatch(remParRelChartArray(ent, screenId)),

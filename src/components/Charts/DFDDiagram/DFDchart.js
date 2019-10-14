@@ -38,7 +38,7 @@ class DFDChartWindow extends Component {
       this.diagData = this.props.DFDDiagramData;
       const viewName = this.entryPoint.split(':')[1];
       const entName = this.entryPoint.split(':')[0];
-      this.props.setDFDFileDiagramData(entName,viewName,this.props.screenId, this.props.repoName); 
+      this.props.setDFDFileDiagramData(entName,viewName,this.props.screenId, this.props.repoName, this.props.pgmChartArray); 
     }
     else if (this.currentDiagram!==this.entryPoint) {
       console.log('number 2');
@@ -47,9 +47,9 @@ class DFDChartWindow extends Component {
       this.scale = this.props.zoomLevel;
       if(this.nextDFDType) {
         this.nextDFDType = false; 
-        this.props.setDFDFileDiagramData(this.entryPoint,this.props.screenId, this.props.repoName);
+        this.props.setDFDFileDiagramData(this.entryPoint,this.props.screenId, this.props.repoName, this.props.pgmChartArray);
       } 
-      else this.props.setDFDPgmDiagramData(this.entryPoint,this.props.screenId, this.props.repoName);
+      else this.props.setDFDPgmDiagramData(this.entryPoint,this.props.screenId, this.props.repoName, this.props.pgmChartArray);
     } 
     else if (this.props.DFDDiagramData.DFDChartPgm && this.props.DFDChartType==='File') {
       console.log('number 3');

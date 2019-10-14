@@ -12,6 +12,7 @@ const mapStateToProps = (state) => {
     entListWindowMode: state.entList.entListWindowMode,
     chartArray: state.mainWindow.chartArray,
     nextDiagrams: state.mainWindow.nextDiagrams,
+    repoName: state.mainWindow.repoName,
   }
 }
 
@@ -19,9 +20,9 @@ const mapDispatchToProps = (dispatch) => {
   return {
     setEntListWindowMode: (entListWindowMode) => dispatch(setEntListWindowMode(entListWindowMode)),
     setNextDiagram: (nextDiagram,screenId) => dispatch(setNextDiagram(nextDiagram,screenId)),
-    getFileWhereUsedData: (ent, screenId) => dispatch(getFileWhereUsedData(ent, screenId)),
-    getFieldWhereUsedData: (field, screenId) => dispatch(getFieldWhereUsedData(field, screenId)),
-    getVarWhereUsedData: (variable, screenId) => dispatch(getVarWhereUsedData(variable, screenId)),
+    getFileWhereUsedData: (ent, screenId, repoName) => dispatch(getFileWhereUsedData(ent, screenId, repoName)),
+    getFieldWhereUsedData: (field, screenId, repoName) => dispatch(getFieldWhereUsedData(field, screenId, repoName)),
+    getVarWhereUsedData: (variable, screenId, repoName) => dispatch(getVarWhereUsedData(variable, screenId, repoName)),
   }
 }
 
@@ -44,7 +45,7 @@ const displaySelectedEnt = (ent, screenId) => {
 }
 
 const showWhereUsedFile= (file,screenId) => {
-  getFileWhereUsedData(file, screenId);
+  getFileWhereUsedData(file, screenId, repoName);
   setEntListWindowMode("ListAndWhereUsed");
 }
 
