@@ -35,7 +35,7 @@ export const api = ({ dispatch, getState }) => (next => (action) => {
     });
   }
   if (action.type === "GET_STRUCTURE_DIAGRAM_DATA") {
-    getDFDPgmData(action.pgm, action.pgmChartArray)
+    getPgmStructureChartData(action.pgm, action.chartArray)
     .then(data => {
       const payload = data.data
       dispatch({
@@ -64,12 +64,11 @@ export const api = ({ dispatch, getState }) => (next => (action) => {
   
 
   else { 
-    console.log(action.url);
-    axios.get(action.url)
-     .then(data => {
-        dispatchBasedOnActionType(action.type, data.data);
-      })
-      //axios.get(action.url);
+    fetch(action.url)
+    .then(response => response.json()) 
+    .then(data => {
+      dispatchBasedOnActionType(action.type, data);
+    });
 
 
     }
